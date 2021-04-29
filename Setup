@@ -1,0 +1,199 @@
+
+to active development environment:
+cd tflite1/
+source tflite1-env/bin/activate
+
+did https://colab.research.google.com/drive/1TZPtb1qq4kFBd-v4iy35JOni_LsBI06c#scrollTo=BqL6A9mjBLKv
+
+downloaded model to final_model.tflite on Y:\Hugh's downloads,backupstuff\Resume or job stuff\projects portfolio\tesnorflow practice
+
+On raspberry pi4:
+
+ran through this tutorial:
+https://github.com/tensorflow/examples/tree/master/lite/examples/object_detection/raspberry_pi
+
+labels.txt isn't working
+
+might have to follow this tutorial:
+
+https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md
+^ this tutorial works!
+
+run this step in the above tutorial (after doing <source tflite1-env/bin/activate>):
+python3 TFLite_detection_webcam.py --modeldir=Sample_TFLite_model
+
+-------------------------------------------------------------------
+
+to get relay working (possibly buggy):
+if (object_name == labels[int(classes[i])]) and (scores[i]) >= 0.95):
+GPIO.output(13, GPIO.HIGH)
+else:
+GPIO.output(13, GPIO.LOW)
+
+27 March 21
+Got the relay working
+Need to pip install rgpio to get it working
+
+12/4/21
+try out using an ultrasonic sensor for detecting when I've left the chair
+
+18/4/21
+got ultrasonic sensor working on raspberry pi using this tutorial for layout (step down from 5v to 3.3V on the ECHO pin): https://thepihut.com/blogs/raspberry-pi-tutorials/hc-sr04-ultrasonic-range-sensor-on-the-raspberry-pi
+
+and this tutorial for the code (using GPIO 24 for ECHO and GPIO 23 for TRIG):
+https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/
+
+Gotta figure out code implementation, maybe call ultrasonicsensor.py from within the main code? Probably best to put into main code
+
+occasional flickers of >3500cm on the measurement readout, need to consider that in the code
+
+might have to set it to require numerouse long distance values to assume I'm away > turn off computer (like if I'm away for 10 minutes?)
+
+19/4/21
+pondering how the algorithm should work...
+
+- v.1 (US sensor at door + camera)
+run face detection routine >
+detect face > 
+turn on relay ONCE > 
+keep seeing if my face is there > 
+if face disappears>
+
+ultrasonic function
+-------------------------------- 
+check ultrasonic sensor at doorway to monitor if I've left the room? (slight momentary reduction in distance) > 
+delay for 1 second > 
+keep monitoring ultrasonic sensor to see if another reduction in distance occurs for 10 minutes > 
+if not click relay once to turn off computer
+if yes return to face detection routine without clicking relay
+
+
+- v.2 (US sensor at desk + camera)
+run face detection routine >
+detect face > 
+turn on relay ONCE > 
+keep seeing if my face is there > 
+if face disappears>
+
+ultrasonic function
+--------------------------------
+Check ultrasonic sensor at desk to monitor if I've left the room? (slight increase in distance) > 
+delay for 1 second > 
+keep monitoring ultrasonic sensor to see if a decrease in distance occurs for 10 minutes > 
+if not click relay once to turn off computer
+if yes return to face detection routine without clicking relay
+
+
+v.3 (camera only)
+run face detection routine >
+detect face > 
+turn on relay ONCE > 
+keep seeing if my face is there > 
+if face disappears for a while (10 mins) click relay once to turn off computer
+if face detected return to keep seeing if my face is there > ...
+
+TO CALL A FUNCTION IN PYTHON:
+
+
+def CamDetect():
+  print("Camera is now operational")
+ # put <for i in range(len(scores)):> section into function?
+
+   for i in range(len(scores)):
+        if ((scores[i] > min_conf_threshold) and (scores[i] <= 1.0)):
+
+            # Get bounding box coordinates and draw box
+            # Interpreter can return coordinates that are outside of image dimensions, need to force them to be within image using max() and min()
+            ymin = int(max(1,(boxes[i][0] * imH)))
+            xmin = int(max(1,(boxes[i][1] * imW)))
+            ymax = int(min(imH,(boxes[i][2] * imH)))
+            xmax = int(min(imW,(boxes[i][3] * imW)))
+            
+            cv2.rectangle(frame, (xmin,ymin), (xmax,ymax), (10, 255, 0), 2)
+
+            # Draw label
+            object_name = labels[int(classes[i])] # Look up object name from "labels" array using class index
+            if object_name == 'Hugh':
+                GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # on if my face is detected
+                time.sleep(0.1) # delay for 1 second
+                GPIO.output(RELAIS_1_GPIO, GPIO.LOW) # on
+            label = '%s: %d%%' % (object_name, int(scores[i]*100)) # Example: 'person: 72%'
+            labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2) # Get font size
+            label_ymin = max(ymin, labelSize[1] + 10) # Make sure not to draw label too close to top of window
+            cv2.rectangle(frame, (xmin, label_ymin-labelSize[1]-10), (xmin+labelSize[0], label_ymin+baseLine-10), (255, 255, 255), cv2.FILLED) # Draw white box to put label text in
+            cv2.putText(frame, label, (xmin, label_ymin-7), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 0), 2) # Draw label text
+
+    # Draw framerate in corner of frame
+    cv2.putText(frame,'FPS: {0:.2f}'.format(frame_rate_calc),(30,50),cv2.FONT_HERSHEY_SIMPLEX,1,(255,255,0),2,cv2.LINE_AA)
+
+    # All the results have been drawn on the frame, so it's time to display it.
+    cv2.imshow('Object detector', frame)
+
+    # Calculate framerate
+    t2 = cv2.getTickCount()
+    time1 = (t2-t1)/freq
+    frame_rate_calc= 1/time1
+
+    # Press 'q' to quit
+    if cv2.waitKey(1) == ord('q'):
+        break
+
+# Clean up
+cv2.destroyAllWindows()
+videostream.stop()
+
+
+----------------------------
+
+def distance():
+  print("Ultrasonic sensor now operational")   
+ # set Trigger to HIGH
+    GPIO.output(GPIO_TRIGGER, True)
+ 
+    # set Trigger after 0.01ms to LOW
+    time.sleep(0.00001)
+    GPIO.output(GPIO_TRIGGER, False)
+ 
+    StartTime = time.time()
+    StopTime = time.time()
+ 
+    # save StartTime
+    while GPIO.input(GPIO_ECHO) == 0:
+        StartTime = time.time()
+ 
+    # save time of arrival
+    while GPIO.input(GPIO_ECHO) == 1:
+        StopTime = time.time()
+ 
+    # time difference between start and arrival
+    TimeElapsed = StopTime - StartTime
+    # multiply with the sonic speed (34300 cm/s)
+    # and divide by 2, because there and back
+    distance = (TimeElapsed * 34300) / 2
+ 
+    return distance
+ 
+if __name__ == '__main__':
+    try:
+        while True:
+            dist = distance()
+if dist > 500 # cm?
+ClickRelay() # turn off PC if increase detected
+else
+            print ("Measured Distance = %.1f cm" % dist)
+            time.sleep(0.5)
+ 
+        # Reset by pressing CTRL + C
+    except KeyboardInterrupt:
+        print("Measurement stopped by User")
+        GPIO.cleanup()
+
+
+def ClickRelay():
+print("Clicking relay now")
+GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # on if my face is detected
+                time.sleep(0.1) # delay for 1 second
+                GPIO.output(RELAIS_1_GPIO, GPIO.LOW) # on
+
+CamDetect()
+USDetect()
