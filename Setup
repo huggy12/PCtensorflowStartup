@@ -197,3 +197,7 @@ GPIO.output(RELAIS_1_GPIO, GPIO.HIGH) # on if my face is detected
 
 CamDetect()
 USDetect()
+
+
+made a bash script to run the virtual env and py script in one go using the following tutorial:
+https://www.circuitbasics.com/how-to-write-and-run-a-shell-script-on-the-raspberry-pi/
