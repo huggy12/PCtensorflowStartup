@@ -22,7 +22,8 @@ The following two articles were a major help in getting the model, finding some 
 ### Model training
  - The tensorflow model I trained via google Colab with the help of this tutorial: https://blog.roboflow.com/how-to-train-a-tensorflow-lite-object-detection-model/
   - This uses the following Google Colab document which you must use to train the model here: https://colab.research.google.com/drive/1qXn9q6m5ug7EWJsJov6mHaotHhCUY-wG?usp=sharing
-  - To use the above you must create a dataset in order to train the model in TFRecord format, which can be done using the dataset creation tools on roboflow:![image](https://user-images.githubusercontent.com/50968156/117539709-313e3f00-b04f-11eb-96b9-faed81e92415.png)
+  - To use the above you must create a dataset in order to train the model in TFRecord format, which can be done using the dataset creation tools on roboflow:
+  - ![image](https://user-images.githubusercontent.com/50968156/117539709-313e3f00-b04f-11eb-96b9-faed81e92415.png)
   - Note: The training process using the google GPU servers takes 6 hours! 
 
 ### Project Template
