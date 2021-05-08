@@ -2,9 +2,13 @@
 
 *Note: I am not an absolute expert in Python, OpenCV or Tensorflow, this stuff is a collection of stuff I have found to make a raspberry pi work doing tensorflow lite stuff. I want to share this because I found it difficult to weed through what works and what doesn't. This is dated as of 8 May 2020 using Python version <FIGURE THIS OUT HUGH> and a raspberry pi 4 running raspbian <FIND THIS OUT HUGH>. My background is mechatronics, I'm a jack of trades but master of none! If there are any suggestions for improvements please let me know.
 
+## Project Background
+
 This is a project I made in order to learn how to use tensorflow lite on small mobile chips such as the raspberry pi. The aim was to learn rougly how image recognition and machine learning work together, I had learned some basics in opencv from this guy Adrian Rosebrock here: https://www.pyimagesearch.com/ (I highly recommend buying some of his learning kits if you are interested in machine learning, image recognition, opencv etc. this guy sets it out really well with heaps of practical examples)
 
-In order to to anything with image recognition I learned that you need a model (gotta know what a face looks like in order to draw a box around it, eh?), which could be either:
+## Image recognition requirements
+
+In order to to anything with image recognition using a computer vision library such as OpenCV (https://opencv.org/) you need a model (gotta know what a face looks like in order to draw a box around it, eh?), which could be either:
   - A pretrained model such as Haar Cascade (https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html), which is useful for generic face detection, but lacks                                              the specificity for discerning your face from someone else's
   - A model made using deep learning/AI/Machine learning (in my case I used tensorflow, because that seems interesting lately), which uses photos of specific items you want to detect i.e. your face, people in a crowd, someone on their phone in their car (*cough* https://www.9news.com.au/national/speed-camera-and-mobile-phone-use-fines-spike-in-nsw/1686f126-6213-44ff-b1e7-1856bb3d1e0a)
 
