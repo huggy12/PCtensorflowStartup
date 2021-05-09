@@ -94,6 +94,8 @@ parser.add_argument('--resolution', help='Desired webcam resolution in WxH. If t
                     default='1280x720')
 parser.add_argument('--edgetpu', help='Use Coral Edge TPU Accelerator to speed up detection',
                     action='store_true')
+parser.add_argument('--turnoffdelay', help='desired delay for automatically turning off the PC',
+                    default='120')
 
 args = parser.parse_args()
 
@@ -104,6 +106,7 @@ min_conf_threshold = float(args.threshold)
 resW, resH = args.resolution.split('x')
 imW, imH = int(resW), int(resH)
 use_TPU = args.edgetpu
+turnoff_delay = float(args.turnoffdelay)
 
 # Import TensorFlow libraries
 # If tflite_runtime is installed, import interpreter from tflite_runtime, else import from regular tensorflow
@@ -209,7 +212,7 @@ while True:
     if ComputerStatus == 1 and (scores[0] < min_conf_threshold): # for 10 minutes of not detecting my face, at 2 fps that's 600 seconds / 2 frames each second, therefore 1200 dead frames are needed for 10 minutes of not seeing my face
                 print("detection tolerance loop number is:",DetectTolerance)
                 DetectTolerance = DetectTolerance + 1
-                if DetectTolerance == 60:
+                if DetectTolerance == turnoff_delay:
                     ComputerStatus = 0 # computer is now off
                     print("computer status is now:",ComputerStatus)
                     DetectTolerance = 0
