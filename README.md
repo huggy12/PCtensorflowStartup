@@ -41,11 +41,11 @@ Most of these instructions are adapted from the source provided in [section 3.2 
 ```
 git clone https://github.com/huggy12/PCtensorflowStartup.git <REVISE HUGH>
 ```
-2. change the name of the directory to something smaller using
+2. Change the name of the directory to something smaller using
 ```
 mv TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi tflite1
 ```
-3. go into the newly renamed project directory typing the following into terminal:
+3. Go into the newly renamed project directory typing the following into terminal:
 ```
 cd tflite1
 ```
@@ -61,7 +61,7 @@ source tflite1-env/bin/activate
 ```
 bash get_pi_requirements.sh
 ```
-7. Create a tensorflow facial recognition model in accordance with 3.1.
+7. Create a tensorflow facial recognition model in accordance with [Section 3.1](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#31-model-training)
 8. Place the model files (named as "detect.tflite" and "labelmap.txt") inside the "Sample_TFLite_model" directory included in the release files.
 9. Execute the "PCTensorStartup.sh" in terminal, This automatically sets up the virtual environment from step 2. and runs the TFLite_detection_webcam.py code, you should see the video footage come up either using a USB webcam or the raspberry pi camera.
 10. Alternatively type in the following terminal commands to get it running:
