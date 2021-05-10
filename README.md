@@ -35,7 +35,7 @@ I have made some changes to the code provided in the above project to trip a rel
 
 ## To get the software running on your Raspberry Pi
 
-Most of these instructions are adapted from the source provided in [section 3.2 (i)](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#31-model-training)
+Most of these instructions are adapted from the source provided in [section 3.2 (i)](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#32-project-template)
 
 1. Download the files from this project using
 ```
