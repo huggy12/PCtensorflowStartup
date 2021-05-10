@@ -1,6 +1,6 @@
 # PCtensorflowStartup
 
-*Note: I am not an absolute expert in Python, OpenCV or Tensorflow, this stuff is a collection of stuff I have found to make a raspberry pi work doing tensorflow lite stuff. I want to share this because I found it difficult to weed through what works and what doesn't. This is dated as of 8 May 2020 using Python version <FIGURE THIS OUT HUGH> and a raspberry pi 4 running raspbian <FIND THIS OUT HUGH>. My background is mechatronics, I'm a jack of trades but master of none! If there are any suggestions for improvements please let me know.
+*Note: I am not an absolute expert in Python, OpenCV or Tensorflow, this stuff is a collection of stuff I have found to make a raspberry pi work doing tensorflow lite stuff. I want to share this because I found it difficult to weed through what works and what doesn't. This is dated as of 8 May 2020 using Python version 3.7.3 and a raspberry pi 4 running raspbian 10 (buster). My background is mechatronics, I'm a jack of trades but master of none! If there are any suggestions for improvements please let me know.*
 
 ## 1. Project Background
 
