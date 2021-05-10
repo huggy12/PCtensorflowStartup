@@ -38,9 +38,9 @@ I have made some changes to the code provided in the above project to trip a rel
 
 Most of these instructions are adapted from the source provided in [section 3.2 (i)](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#32-project-template)
 
-1. Download the files from this project using
+1. Download the files from this project usingthe following in terminal:
 ```
-git clone https://github.com/huggy12/PCtensorflowStartup.git <REVISE HUGH>
+git clone https://github.com/huggy12/PCtensorflowStartup.git
 ```
 2. Change the name of the directory to something smaller using
 ```
