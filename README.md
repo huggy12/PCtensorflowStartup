@@ -27,9 +27,10 @@ The following two articles were a major help in getting the model, finding some 
   - Note: The training process using the google GPU servers takes 6 hours! 
 
 ### 3.2 Project Template
- i. I found this guys project who had a nice tensorflow lite raspberry pi project here: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md
+i. I found this guys project who had a nice tensorflow lite raspberry pi project here: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md
  This is a good template as it runs with any kind of webcam or raspberry pi camera I've tried. There is also the option in it to use a Coral accelerator to speed up the framerate.
- ii. *Extra: This guy also has a decent tutorial on how to train Tensorflow models if you got your own beefy Windows 10 PC here: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#part-1---how-to-train-convert-and-run-custom-tensorflow-lite-object-detection-models-on-windows-10, although I have not tried it yet!
+ 
+ii. *Extra: This guy also has a decent tutorial on how to train Tensorflow models if you got your own beefy Windows 10 PC here: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#part-1---how-to-train-convert-and-run-custom-tensorflow-lite-object-detection-models-on-windows-10, although I have not tried it yet!*
 
 I have made some changes to the code provided in the above project to trip a relay (or do whatever you want the raspberry pi to do once a positive facial detection has been made).
 
@@ -69,4 +70,31 @@ bash get_pi_requirements.sh
 cd tflite1/
 source tflite1-env/bin/activate
 python3 TFLite_detection_webcam.py --modeldir=Sample_TFLite_model/ --resolution='640x480'
+```
+
+Press q from the video window to exit the video
+
+
+## To get it running automatically on startup of the Pi
+
+11. To get the project running automatically on startup before booting into the desktop environment (for a little extra fps):
+```
+sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart
+```
+type in:
+```
+@lxterminal -e "/home/pi/tflite/PCTensorStartup.sh"
+```
+and save using Ctrl X, then Y, then enter
+
+However it does not boot into desktop environment!
+To disable this you can use CTRL-ALT-F2 to go into a login prompt, username is pi password is raspberry
+```
+sudo mv /home/pi/.config/lxsession/LXDE-pi/autostart /home/pi/.config/lxsession/LXDE-pi/autostartoff
+sudo reboot
+```
+to re enable the autostart function type in:
+```
+sudo mv /home/pi/.config/lxsession/LXDE-pi/autostartoff /home/pi/.config/lxsession/LXDE-pi/autostart
+sudo reboot
 ```
