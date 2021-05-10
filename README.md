@@ -49,7 +49,10 @@ mv TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi tflite1
 ```
 cd tflite1
 ```
-4. Configure a Python virtual environment in accordance with the instructions provided in in the link in 3.2 (i). (i.e. "sudo pip3 install virtualenv" when inside the /home/pi/tflite1 directory)
+4. Configure a Python virtual environment in accordance with the instructions provided in in the link in 3.2 (i):
+```
+sudo pip3 install virtualenv
+```
 5. Activate the virtual environment using 
 ```
 source tflite1-env/bin/activate
