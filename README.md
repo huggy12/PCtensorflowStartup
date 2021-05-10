@@ -88,7 +88,9 @@ type in:
 and save using Ctrl X, then Y, then enter
 
 However it does not boot into desktop environment!
-To disable this you can use CTRL-ALT-F2 to go into a login prompt, username is pi password is raspberry
+To disable this you can use CTRL-ALT-F2 to go into a login prompt, the default username is pi, password is raspberry
+
+Then when logged into the boot terminal, type in:
 ```
 sudo mv /home/pi/.config/lxsession/LXDE-pi/autostart /home/pi/.config/lxsession/LXDE-pi/autostartoff
 sudo reboot
