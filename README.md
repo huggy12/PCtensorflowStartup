@@ -34,7 +34,7 @@ ii. *Extra: This guy also has a decent tutorial on how to train Tensorflow model
 
 I have made some changes to the code provided in the above project to trip a relay (or do whatever you want the raspberry pi to do once a positive facial detection has been made).
 
-## To get the software running on your Raspberry Pi
+## 4.1 To get the software running on your Raspberry Pi
 
 Most of these instructions are adapted from the source provided in [section 3.2 (i)](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#32-project-template)
 
@@ -75,7 +75,7 @@ python3 TFLite_detection_webcam.py --modeldir=Sample_TFLite_model/ --resolution=
 Press q from the video window to exit the video
 
 
-## To get it running automatically on startup of the Pi
+## 4.2 To get it running automatically on startup of the Pi
 
 11. To get the project running automatically on startup before booting into the desktop environment (for a little extra fps):
 ```
