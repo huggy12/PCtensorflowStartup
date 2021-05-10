@@ -45,7 +45,10 @@ git clone https://github.com/huggy12/PCtensorflowStartup.git <REVISE HUGH>
 
 mv TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi tflite1
 
-3. cd tflite1
+3. go into the newly renamed project directory typing the following into terminal:
+
+cd tflite1
+
 4. Configure a Python virtual environment in accordance with the instructions provided in in the link in 3.2 (i). (i.e. "sudo pip3 install virtualenv" when inside the /home/pi/tflite1 directory)
 5. Activate the virtual environment using 
 
