@@ -95,9 +95,10 @@ Press q from the video window to exit the video
 
 11. To get the project running automatically on startup before booting into the desktop environment (for a little extra fps):
 ```
-sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart <or maybe /etc/xdg/lxsession/LXDE-pi/autostart>
+sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
 ```
-type in:
+type in one line above the "@xscreensaver -no-splash" line at the bottom:
+![image](https://user-images.githubusercontent.com/50968156/117806419-ae5ef380-b29d-11eb-9a7c-fd02c35d5f47.png)
 ```
 @lxterminal -e "/home/pi/tflite/PCTensorStartup.sh"
 ```
