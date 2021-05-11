@@ -66,18 +66,22 @@ sudo pip3 install virtualenv
 ```
 python3 -m venv tflite1-env
 ```
-5. Activate the virtual environment using 
+6. Activate the virtual environment using 
 ```
 source tflite1-env/bin/activate
 ```
-6. Install the dependencies by using the get_pi_requirements.sh file, type into the terminal:
+7. Install the dependencies by using the get_pi_requirements.sh file, type into the terminal:
 ```
 bash get_pi_requirements.sh
 ```
-7. Create a tensorflow facial recognition model in accordance with [Section 3.1](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#31-model-training) via Google Colab or if you've got a beefy PC, maybe try doing it on your own PC via instructions in [Section 3.2 ii](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#32-project-template)
-8. Place the model files (named as "detect.tflite" and "labelmap.txt") inside the "Sample_TFLite_model" directory included in the release files.
-9. Execute the "PCTensorStartup.sh" in terminal, This automatically sets up the virtual environment from step 2. and runs the TFLite_detection_webcam.py code, you should see the video footage come up either using a USB webcam or the raspberry pi camera.
-10. Alternatively type in the following terminal commands to get it running:
+8. Install RPi.GPIO to control the GPIO pins:
+```
+pip3 install RPi.GPIO
+```
+9. Create a tensorflow facial recognition model in accordance with [Section 3.1](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#31-model-training) via Google Colab or if you've got a beefy PC, maybe try doing it on your own PC via instructions in [Section 3.2 ii](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#32-project-template)
+10. Place the model files (named as "detect.tflite" and "labelmap.txt") inside the "Sample_TFLite_model" directory included in the release files.
+11. Execute the "PCTensorStartup.sh" in terminal, This automatically sets up the virtual environment from step 2. and runs the TFLite_detection_webcam.py code, you should see the video footage come up either using a USB webcam or the raspberry pi camera.
+12. Alternatively type in the following terminal commands to get it running:
 ```
 cd tflite1/
 source tflite1-env/bin/activate
