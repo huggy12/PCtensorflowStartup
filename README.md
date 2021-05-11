@@ -62,6 +62,10 @@ cd tflite1
 ```
 sudo pip3 install virtualenv
 ```
+5. Create the Virtual environment using:
+```
+python3 -m venv tflite1-env
+```
 5. Activate the virtual environment using 
 ```
 source tflite1-env/bin/activate
