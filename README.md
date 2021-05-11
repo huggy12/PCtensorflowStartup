@@ -95,7 +95,7 @@ Press q from the video window to exit the video
 
 11. To get the project running automatically on startup before booting into the desktop environment (for a little extra fps):
 ```
-sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart
+sudo nano /home/pi/.config/lxsession/LXDE-pi/autostart <or maybe /home/pi/.config/lxpanel/LXDE-pi>
 ```
 type in:
 ```
