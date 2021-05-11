@@ -217,3 +217,41 @@ OR
 
 sudo mv /home/pi/.config/lxsession/LXDE-pi/autostart /home/pi/.config/lxsession/LXDE-pi/autostartoff
 and then sudo reboot
+
+12/05/21
+autostart doesn't work, terminal window opens and closes, can't debug it, I suspect graphical elements don't want to be displayed for some reason
+for some reason directory didn't exist, had to make it using sudo mkdir /home/pi/.config/lxsession/LXDE-pi/autostart
+might try systemd:
+https://learn.sparkfun.com/tutorials/how-to-run-a-raspberry-pi-program-on-startup#method-3-systemd
+
+possibly use this:
+https://unix.stackexchange.com/questions/388837/systemd-run-script-after-gui-is-ready
+
+
+sudo nano /lib/systemd/system/TFlite1.service
+
+then add:
+
+[Unit]
+Description=TFlite Service
+
+[Service]
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+ExecStart=/home/pi/tflite1/PCTensorStartup.sh   
+Restart=always
+RestartSec=10s
+KillMode=process
+TimeoutSec=infinity
+
+[Install]
+WantedBy=graphical.target
+
+save, then
+
+sudo systemctl daemon-reload
+
+sudo systemctl enable TFlite1.service
+
+sudo reboot
+
