@@ -84,7 +84,7 @@ pip3 install RPi.GPIO
 ```
 sudo chmod +x PCTensorStartup.sh
 ```
-12. Execute the "PCTensorStartup.sh" in terminal, This automatically sets up the virtual environment from step 2. and runs the TFLite_detection_webcam.py code, you should see the video footage come up either using a USB webcam or the raspberry pi camera.
+12. Double click the "PCTensorStartup.sh" and select the terminal option or type ```./PCTensorStartup.sh``` in terminal, This automatically sets up the virtual environment from step 2. and runs the TFLite_detection_webcam.py code, you should see the video footage come up either using a USB webcam or the raspberry pi camera.
 13. Alternatively type in the following terminal commands to get it running:
 ```
 cd tflite1/
