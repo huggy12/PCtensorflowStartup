@@ -52,7 +52,7 @@ git clone https://github.com/huggy12/PCtensorflowStartup.git
 ```
 2. Change the name of the directory to something smaller using
 ```
-mv TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi tflite1
+mv PCtensorflowStartup tflite1
 ```
 3. Go into the newly renamed project directory typing the following into terminal:
 ```
