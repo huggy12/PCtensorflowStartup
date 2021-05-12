@@ -14,9 +14,9 @@ This program simply turns on a PC upon detection of the users face via USB/raspb
 
 ## 2. Image recognition requirements
 
-In order to to anything with image recognition using a computer vision library such as OpenCV (https://opencv.org/) you need a model (gotta know what a face looks like in order to draw a box around it, eh?), which could be either:
-  - A pretrained model such as Haar Cascade (https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html), which is useful for generic face detection, but lacks                                              the specificity for discerning your face from someone else's
-  - A model made using deep learning/AI/Machine learning (in my case I used tensorflow, because that seems interesting lately), which uses photos of specific items you want to detect i.e. your face, people in a crowd, someone on their phone in their car (*cough* https://www.9news.com.au/national/speed-camera-and-mobile-phone-use-fines-spike-in-nsw/1686f126-6213-44ff-b1e7-1856bb3d1e0a)
+In order to to anything with image recognition using a computer vision library such as [OpenCV](https://opencv.org/) you need a model (gotta know what a face looks like in order to draw a box around it, eh?), which could be either:
+  - A pretrained model such as [Haar Cascade](https://docs.opencv.org/3.4/db/d28/tutorial_cascade_classifier.html), which is useful for generic face detection, but lacks                                              the specificity for discerning your face from someone else's
+  - A model made using deep learning/AI/Machine learning (in my case I used tensorflow, because that seems interesting lately), which uses photos of specific items you want to detect i.e. your face, people in a crowd, someone on their phone in their car [*cough*](https://www.9news.com.au/national/speed-camera-and-mobile-phone-use-fines-spike-in-nsw/1686f126-6213-44ff-b1e7-1856bb3d1e0a)
 
 I've used pretrained models before in OpenCV (kudos to Adrian Rosebuck again, can't recommend his stuff enough) but I wanna learn more about deep learning approaches for the specificity they can provide, so here we are.
 
@@ -36,7 +36,7 @@ The following two articles were a major help in getting the model, finding some 
 i. I found this guys project who had a nice tensorflow lite raspberry pi project here: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md
  This is a good template as it runs with any kind of webcam or raspberry pi camera I've tried. There is also the option in it to use a Coral accelerator to speed up the framerate.
  
-ii. *Extra: This guy also has a decent tutorial on how to train Tensorflow models if you got your own beefy Windows 10 PC here: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#part-1---how-to-train-convert-and-run-custom-tensorflow-lite-object-detection-models-on-windows-10, although I have not tried it yet!*
+ii. *Extra: This guy also has a decent tutorial on how to train Tensorflow models if you got your own beefy Windows 10 PC [here](https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi#part-1---how-to-train-convert-and-run-custom-tensorflow-lite-object-detection-models-on-windows-10), although I have not tried it yet!*
 
 I have made some changes to the code provided in the above project to trip a relay (or do whatever you want the raspberry pi to do once a positive facial detection has been made).
 
