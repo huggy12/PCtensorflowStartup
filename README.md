@@ -41,7 +41,10 @@ I have made some changes to the code provided in the above project to trip a rel
 
 Most of these instructions are adapted from the source provided in [section 3.2 (i)](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#32-project-template)
 
-Before getting started, make sure the camera is enabled in (Preferences > Raspberry Pi configuration) and update everything using 
+Before getting started, make sure the camera is enabled in (Preferences > Raspberry Pi configuration) 
+![image](https://user-images.githubusercontent.com/50968156/117952760-cd6e8b80-b358-11eb-9bf4-83173e959c19.png)
+
+and update everything using 
 ```
 sudo apt-get update
 sudo apt-get dist-upgrade
