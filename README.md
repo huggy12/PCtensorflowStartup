@@ -87,7 +87,7 @@ sudo chmod +x PCTensorStartup.sh
 12. Double click the "PCTensorStartup.sh" and select the terminal option or type ```./PCTensorStartup.sh``` in terminal, This automatically sets up the virtual environment from step 2. and runs the TFLite_detection_webcam.py code, you should see the video footage come up either using a USB webcam or the raspberry pi camera.
 13. Alternatively type in the following terminal commands to get it running:
 ```
-cd tflite1/
+cd /home/pi/tflite1/
 source tflite1-env/bin/activate
 python3 TFLite_detection_webcam.py --modeldir=Sample_TFLite_model/ --resolution='640x480'
 ```
