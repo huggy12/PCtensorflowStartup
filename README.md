@@ -30,7 +30,7 @@ The following two articles were a major help in getting the model, finding some 
   - This uses the following Google Colab document which you must use to train the model here: https://colab.research.google.com/drive/1qXn9q6m5ug7EWJsJov6mHaotHhCUY-wG?usp=sharing
   - To use the above you must create a dataset in order to train the model in TFRecord format, which can be done using the dataset creation tools on roboflow:
   - ![image](https://user-images.githubusercontent.com/50968156/117539709-313e3f00-b04f-11eb-96b9-faed81e92415.png)
-  - Note: The training process using the google GPU servers takes 6 hours! 
+  - Note: The training process using the google GPU servers takes 6 hours! I have included a default model that may work with your face (it was an initial model that seems to trigger on a variety of faces in addition to mine :P)
 
 ### 3.2 Project Template
 i. I found this guys project who had a nice tensorflow lite raspberry pi project here: https://github.com/EdjeElectronics/TensorFlow-Lite-Object-Detection-on-Android-and-Raspberry-Pi/blob/master/Raspberry_Pi_Guide.md
@@ -84,7 +84,7 @@ bash get_pi_requirements.sh
 ```
 pip3 install RPi.GPIO
 ```
-9. Create a tensorflow facial recognition model in accordance with [Section 3.1](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#31-model-training) via Google Colab or if you've got a beefy PC, maybe try doing it on your own PC via instructions in [Section 3.2 ii](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#32-project-template)
+9. Create a tensorflow facial recognition model in accordance with [Section 3.1](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#31-model-training) via Google Colab or if you've got a beefy PC, maybe try doing it on your own PC via instructions in [Section 3.2 ii](https://github.com/huggy12/PCtensorflowStartup/blob/main/README.md#32-project-template). I have included a default model in the project file list which was one of my first models, it seems to trigger on a variety of faces including mine (gotta use HEAPS of images to train these models :P)
 10. Place the model files (named as "detect.tflite" and "labelmap.txt") inside the "Sample_TFLite_model" directory included in the release files.
 11. Make the startup script executable:
 ```
