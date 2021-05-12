@@ -97,30 +97,44 @@ Press q from the video window to exit the video
 
 ## 4.2 To get it running automatically on startup of the Pi
 
-To get the project running automatically on startup before booting into the desktop environment (for a little extra fps):
+To get the project running automatically on startup after booting into the desktop environment we will use [systemd](https://learn.sparkfun.com/tutorials/how-to-run-a-raspberry-pi-program-on-startup#method-3-systemd) (I've had bugs occur when booting the program too early using the autostart method):
 ```
-sudo nano /etc/xdg/lxsession/LXDE-pi/autostart
+sudo nano /lib/systemd/system/TFlite1.service
 ```
-type in one line above the "@xscreensaver -no-splash" line at the bottom:
-![image](https://user-images.githubusercontent.com/50968156/117806419-ae5ef380-b29d-11eb-9a7c-fd02c35d5f47.png)
+then add:
 ```
-@lxterminal -e "/home/pi/tflite/PCTensorStartup.sh"
-```
-and save using Ctrl X, then Y, then enter
+[Unit]
+Description=TFlite Service
 
-However it does not boot into desktop environment!
-To disable this you can use CTRL-ALT-F2 to go into a login prompt, the default username is pi, password is raspberry
+[Service]
+Environment=DISPLAY=:0
+Environment=XAUTHORITY=/home/pi/.Xauthority
+ExecStart=/home/pi/tflite1/PCTensorStartup.sh   
+Restart=always
+RestartSec=10s
+KillMode=process
+TimeoutSec=infinity
 
-Then when logged into the boot terminal, type in:
+[Install]
+WantedBy=graphical.target
 ```
-sudo mv /home/pi/.config/lxsession/LXDE-pi/autostart /home/pi/.config/lxsession/LXDE-pi/autostartoff
+save using ctrl X, Y, enter, then
+```
+sudo systemctl daemon-reload
+
+sudo systemctl enable TFlite1.service
+
 sudo reboot
 ```
-to re enable the autostart function type in:
+This will attempt to run the program after booting into desktop, if the process fails for whatever reason it will retry opening it. 
+
+This means if you want to disable it you will have to do the following:
 ```
-sudo mv /home/pi/.config/lxsession/LXDE-pi/autostartoff /home/pi/.config/lxsession/LXDE-pi/autostart
-sudo reboot
+sudo systemctl disable TFlite1.service
+sudo rm /lib/systemd/system/TFlite1.service
+sudo systemctl daemon-reload
 ```
+
 ## 4.3 Using a relay to switch on a PC
 
 The python script this runs outputs to a relay on GPIO 17, I was using a generic arduino style relay switch which you can find [here](https://www.aliexpress.com/item/32797029405.html?albpd=en32797029405&acnt=708-803-3821&aff_platform=aaf&albpg=489474619664&netw=u&albcp=11482541945&sk=UneMJZVf&trgt=489474619664&terminal_id=badffc2294d34a41a2128327185e9f24&tmLog=new_Detail&needSmbHouyi=false&albbt=Google_7_shopping&src=google&crea=en32797029405&aff_fcid=0c1bdf1cc5ca48e6b18d467fcf6552b6-1620727279997-08307-UneMJZVf&gclid=CjwKCAjw1uiEBhBzEiwAO9B_HXfmOg-cX1Jcih_FQSEMN-_TZpbumsAci1OLcFhIdmLIy73Q-VC5bRoCtQYQAvD_BwE&albag=112620152352&aff_fsk=UneMJZVf&albch=shopping&albagn=888888&isSmbAutoCall=false&aff_trace_key=0c1bdf1cc5ca48e6b18d467fcf6552b6-1620727279997-08307-UneMJZVf&device=c&gclsrc=aw.ds), although this could be tweaked to run something else on the GPIO pins when triggered (up to your imagination).
