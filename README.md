@@ -7,6 +7,9 @@
 This is a project I made in order to learn how to use tensorflow lite on small mobile chips such as the raspberry pi. The aim was to learn rougly how image recognition and machine learning work together, I had learned some basics in opencv from this guy Adrian Rosebrock here: https://www.pyimagesearch.com/ (I highly recommend buying some of his learning kits if you are interested in machine learning, image recognition, opencv etc. this guy sets it out really well with heaps of practical examples)
 
 ![image](https://user-images.githubusercontent.com/50968156/117795166-44405180-b291-11eb-9f83-6ce0bb8aa7fd.png)
+![Screenshot 2021-05-12 194011](https://user-images.githubusercontent.com/50968156/117957236-348e3f00-b35d-11eb-8635-9f704903658f.png)
+![Screenshot 2021-05-12 194134](https://user-images.githubusercontent.com/50968156/117957302-45d74b80-b35d-11eb-945f-01ded91bbe27.png)
+
 
 
 ## 2. Image recognition requirements
@@ -96,6 +99,7 @@ python3 TFLite_detection_webcam.py --modeldir=Sample_TFLite_model/ --resolution=
 ```
 
 Press q from the video window to exit the video
+
 
 
 ## 4.2 To get it running automatically on startup of the Pi
