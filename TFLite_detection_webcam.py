@@ -233,12 +233,12 @@ while True:
             # Draw label
             object_name = labels[int(classes[i])] # Look up object name from "labels" array using class index
             print(object_name)    
-            if object_name == 'Hugh' and ComputerStatus == 0:
+            if object_name == 'User1' and ComputerStatus == 0:
                 DetectTolerance = 0
                 ComputerStatus = 1 # if this is one DON'T click the relay and turn off the computer
                 print("computer status is now:",ComputerStatus)
                 ClickRelay()
-            elif object_name == 'Hugh' and ComputerStatus == 1:
+            elif object_name == 'User1' and ComputerStatus == 1:
                 DetectTolerance = 0
             label = '%s: %d%%' % (object_name, int(scores[i]*100)) # Example: 'person: 72%'
             labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.7, 2) # Get font size
@@ -265,53 +265,5 @@ while True:
 cv2.destroyAllWindows()
 videostream.stop()
 
-
-
-# 
-# #-----------------
-# #integrate ultrasonic stuff, put relay into its own function
-# def distance():
-#     print("Ultrasonic sensor now operational")   
-#     # set Trigger to HIGH
-#     GPIO.output(GPIO_TRIGGER, True)
-#  
-# # set Trigger after 0.01ms to LOW
-#     time.sleep(0.00001)
-#     GPIO.output(GPIO_TRIGGER, False)
-#  
-#     StartTime = time.time()
-#     StopTime = time.time()
-#  
-#     # save StartTime
-#     while GPIO.input(GPIO_ECHO) == 0:
-#         StartTime = time.time()
-#  
-#     # save time of arrival
-#     while GPIO.input(GPIO_ECHO) == 1:
-#         StopTime = time.time()
-#  
-#     # time difference between start and arrival
-#     TimeElapsed = StopTime - StartTime
-#     # multiply with the sonic speed (34300 cm/s)
-#     # and divide by 2, because there and back
-#     distance = (TimeElapsed * 34300) / 2
-#  
-#     return distance
-#  
-#     if __name__ == '__main__':
-#         try:
-#             while True:
-#                 dist = distance()
-#             if dist > 500: # cm?
-#                 ComputerStatus = 0 # computer is now gonna turn off
-#                 ClickRelay() # turn off PC if increase detected
-#             else:
-#                 print ("Measured Distance = %.1f cm" % dist)
-#                 time.sleep(0.5)
-#  
-#         # Reset by pressing CTRL + C
-#         except KeyboardInterrupt:
-#             print("Measurement stopped by User")
-#             GPIO.cleanup()
 
 
