@@ -4,8 +4,8 @@
 
 ## 1. Project Background - Booting a desktop PC using a Raspberry Pi 4, Tensorflow lite and OpenCV
 
-This program simply turns on a PC upon detection of the users face via tensorflow lite! This is a project I made in order to learn how to use tensorflow lite on small mobile chips such as the raspberry pi. The aim was to learn rougly how image recognition and machine learning work together, I had learned some basics in opencv from this guy Adrian Rosebrock here: https://www.pyimagesearch.com/ (I highly recommend buying some of his learning kits if you are interested in machine learning, image recognition, opencv etc. this guy sets it out really well with heaps of practical examples)
-
+This program simply turns on a PC upon detection of the users face via USB/raspberry pi camera and tensorflow lite! This is a project I made in order to learn how to use tensorflow lite on small mobile chips such as the raspberry pi. The aim was to learn rougly how image recognition and machine learning work together, I had learned some basics in opencv from this guy Adrian Rosebrock here: https://www.pyimagesearch.com/ (I highly recommend buying some of his learning kits if you are interested in machine learning, image recognition, opencv etc. this guy sets it out really well with heaps of practical examples)
+![image](https://user-images.githubusercontent.com/50968156/117960372-445b5280-b360-11eb-80e3-f35163c3ec3e.png)
 ![image](https://user-images.githubusercontent.com/50968156/117795166-44405180-b291-11eb-9f83-6ce0bb8aa7fd.png)
 ![Screenshot 2021-05-12 194011](https://user-images.githubusercontent.com/50968156/117957236-348e3f00-b35d-11eb-8635-9f704903658f.png)
 ![Screenshot 2021-05-12 194134](https://user-images.githubusercontent.com/50968156/117957302-45d74b80-b35d-11eb-945f-01ded91bbe27.png)
@@ -172,6 +172,8 @@ The python script this runs outputs to a relay on GPIO 17, I was using a generic
 
 The wiring for the relay connections are as follows:
 ![image](https://user-images.githubusercontent.com/50968156/117796825-c4b38200-b292-11eb-832e-0879788552c3.png)
+![image](https://user-images.githubusercontent.com/50968156/117960221-2130a300-b360-11eb-9e79-0c3713f137dd.png)
+
 
 With the wires going to the item, depending on what it is you want to turn on (in my case, my desktop PC) you will want to connect the NO (normally open) terminals to the computer power button pins. To enable the use of my PC power button switch, I connected it in parallel to the raspberry pi relay output:
 ![image](https://user-images.githubusercontent.com/50968156/117799225-37bdf800-b295-11eb-99cd-6290bae357ec.png)
