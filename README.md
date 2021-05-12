@@ -20,7 +20,7 @@ In order to to anything with image recognition using a computer vision library s
 
 I've used pretrained models before in OpenCV (kudos to Adrian Rosebuck again, can't recommend his stuff enough) but I wanna learn more about deep learning approaches for the specificity they can provide, so here we are.
 
-I am interested also in doing this stuff using mobile chips such as the raspberry pi, as the mobility and low power consumption may be useful for little robotics projects later on. In my instance I had a raspberry pi 4 4gb model, which was more than enough ram to get the job done (the end python script can actually run before the desktop environment loads for a little extra framerate I found). I could use a spare raspbery pi zero I got lying around, but these are VERY SLOW for any kind of OpenCV work I've tried in the past (I gave up just trying to install the dependencies and debug anything).
+I am interested also in doing this stuff using mobile chips such as the raspberry pi, as the mobility and low power consumption may be useful for little robotics projects later on. In my instance I had a raspberry pi 4 4gb model, which was more than enough ram to get the job done. I could use a spare raspbery pi zero I got lying around, but these are VERY SLOW for any kind of OpenCV work I've tried in the past (I gave up just trying to install the dependencies and debug anything).
 
 ## 3. Reference Material
 The following two articles were a major help in getting the model, finding some code and the correct dependencies which will properly run it on the raspberry pi
