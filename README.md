@@ -2,7 +2,7 @@
 
 *Note: I am not an absolute expert in Python, OpenCV or Tensorflow, this stuff is a collection of stuff I have found to make a raspberry pi work doing tensorflow lite stuff. I want to share this because I found it difficult to weed through what works and what doesn't. This is dated as of 8 May 2020 using Python version 3.7.3 and a raspberry pi 4 running raspbian 10 (buster). My background is mechatronics, I'm a jack of trades but master of none! If there are any suggestions for improvements please let me know.*
 
-## 1. Project Background
+## 1. Project Background - Booting a desktop PC using a Raspberry Pi 4, Tensorflow and OpenCV
 
 This is a project I made in order to learn how to use tensorflow lite on small mobile chips such as the raspberry pi. The aim was to learn rougly how image recognition and machine learning work together, I had learned some basics in opencv from this guy Adrian Rosebrock here: https://www.pyimagesearch.com/ (I highly recommend buying some of his learning kits if you are interested in machine learning, image recognition, opencv etc. this guy sets it out really well with heaps of practical examples)
 
