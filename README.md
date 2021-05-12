@@ -100,7 +100,31 @@ python3 TFLite_detection_webcam.py --modeldir=Sample_TFLite_model/ --resolution=
 
 Press q from the video window to exit the video
 
+## 4.1.1 Input arguments
 
+The following arguments can be entered after the *python3 TFLite_detection_webcam.py* command above to alter the behaviour of the program:
+
+--modeldir
+Folder the .tflite file is located in
+
+--graph
+Name of the .tflite file, if different than detect.tflite
+
+--labels
+Name of the labelmap file, if different than labelmap.txt
+
+--threshold
+Minimum confidence threshold for displaying detected objects, lowering this value may trigger false detections
+                    default=0.95
+--resolution
+Desired webcam resolution in WxH. If the webcam does not support the resolution entered, errors may occur.
+                    default='1280x720'
+--edgetpu
+For using Coral Edge TPU Accelerator to speed up detection
+                    action='store_true' (if you want to use it)
+--turnoffdelay
+desired delay for automatically turning off the PC
+                    default='120' (Roughly seconds)
 
 ## 4.2 To get it running automatically on startup of the Pi
 
