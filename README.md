@@ -103,7 +103,7 @@ Press q from the video window to exit the video
 ## 4.1.1 Input arguments
 
 The following arguments can be entered after the *python3 TFLite_detection_webcam.py* command above to alter the behaviour of the program:
-
+```
 --modeldir
 Folder the .tflite file is located in
 
@@ -125,7 +125,7 @@ For using Coral Edge TPU Accelerator to speed up detection
 --turnoffdelay
 desired delay for automatically turning off the PC
                     default='120' (Roughly seconds)
-
+```
 ## 4.2 To get it running automatically on startup of the Pi
 
 To get the project running automatically on startup after booting into the desktop environment we will use [systemd](https://learn.sparkfun.com/tutorials/how-to-run-a-raspberry-pi-program-on-startup#method-3-systemd) (I've had bugs occur when booting the program too early using the autostart method):
